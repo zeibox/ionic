@@ -1,0 +1,18 @@
+<app-header titulo="Refresher"></app-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-item color="secondary" *ngIf="items.length === 0">
+        <ion-label>Pull to refresh</ion-label>
+    </ion-item>
+
+    <ion-list class="animated fadeIn" *ngIf="items.length > 0">
+        <ion-item color="tertiary" *ngFor="let item of items; let i = index;">
+            <ion-label>item {{ i + 1 }}</ion-label>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
